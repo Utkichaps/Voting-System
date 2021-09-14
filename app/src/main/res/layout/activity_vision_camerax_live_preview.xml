@@ -17,7 +17,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
-  <com.google.mlkit.vision.demo.GraphicOverlay
+  <com.voting.mlkit.vision.app.GraphicOverlay
       android:id="@+id/graphic_overlay"
       android:layout_width="0dp"
       android:layout_height="0dp"
