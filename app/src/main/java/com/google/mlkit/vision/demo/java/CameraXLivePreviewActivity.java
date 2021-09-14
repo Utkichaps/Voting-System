@@ -58,6 +58,7 @@ import com.google.mlkit.common.MlKitException;
 import com.google.mlkit.vision.demo.CameraXViewModel;
 import com.google.mlkit.vision.demo.GraphicOverlay;
 import com.google.mlkit.vision.demo.R;
+import com.google.mlkit.vision.demo.SuccessScreen;
 import com.google.mlkit.vision.demo.VisionImageProcessor;
 import com.google.mlkit.vision.demo.java.facedetector.FaceDetectorProcessor;
 import com.google.mlkit.vision.demo.preference.PreferenceUtils;
@@ -150,11 +151,6 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
         int selectedId = candidateGroup.getCheckedRadioButtonId();
         RadioButton radioButton = findViewById(selectedId);
         selectedCandidate = radioButton.getText().toString();
-        Toast.makeText(
-                getApplicationContext(),
-                selectedCandidate,
-                Toast.LENGTH_LONG)
-                .show();
       }
     });
 
@@ -193,7 +189,10 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
       builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialogInterface, int i) {
-
+          Intent intent = new Intent(getApplicationContext(), SuccessScreen.class);
+          intent.putExtra("Candidate",selectedCandidate);
+          intent.putExtra("Area",selectedArea);
+          startActivity(intent);
         }
       });
 
@@ -244,6 +243,11 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
   protected void onSaveInstanceState(@NonNull Bundle bundle) {
     super.onSaveInstanceState(bundle);
     bundle.putString(STATE_SELECTED_MODEL, selectedModel);
+  }
+
+  @Override
+  public void onBackPressed() {
+    //Prevents back button from being pressed
   }
 
 

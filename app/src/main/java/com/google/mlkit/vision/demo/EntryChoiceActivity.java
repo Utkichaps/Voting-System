@@ -36,4 +36,9 @@ public class EntryChoiceActivity extends AppCompatActivity {
             startActivity(new Intent(this, faceDetection));
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        //Prevents back button from being pressed
+    }
 }
