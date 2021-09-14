@@ -16,9 +16,11 @@
 
 package com.google.mlkit.vision.demo.java;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -31,8 +33,15 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Size;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 import androidx.camera.core.CameraInfoUnavailableException;
@@ -82,6 +91,12 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
   //SET CAMERA:
   private int lensFacing = CameraSelector.LENS_FACING_FRONT;
   private CameraSelector cameraSelector;
+  private Spinner areaSpinner;
+  private Button submitButton;
+  private String selectedArea;
+  private String selectedCandidate;
+  private RadioGroup candidateGroup;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +119,88 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
     cameraSelector = new CameraSelector.Builder().requireLensFacing(lensFacing).build();
 
     setContentView(R.layout.activity_vision_camerax_live_preview);
+
+    //Spinner
+    areaSpinner = findViewById(R.id.areaSpinner);
+    String[] areas = new String[] {"Select an area","area1", "area2", "area3", "area4"};
+    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+            android.R.layout.simple_spinner_item, areas);
+    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    areaSpinner.setAdapter(adapter);
+
+    selectedArea = "Select an area";
+    areaSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+      @Override
+      public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        selectedArea = areaSpinner.getItemAtPosition(i).toString();
+      }
+
+      @Override
+      public void onNothingSelected(AdapterView<?> adapterView) {
+
+      }
+    });
+
+    //Radio group
+    candidateGroup = findViewById(R.id.candidateGroup);
+    selectedCandidate = "";
+    candidateGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+      @Override
+      public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        int selectedId = candidateGroup.getCheckedRadioButtonId();
+        RadioButton radioButton = findViewById(selectedId);
+        selectedCandidate = radioButton.getText().toString();
+        Toast.makeText(
+                getApplicationContext(),
+                selectedCandidate,
+                Toast.LENGTH_LONG)
+                .show();
+      }
+    });
+
+    //Button
+    submitButton = findViewById(R.id.submitVote);
+    submitButton.setOnClickListener(v -> {
+      if(selectedArea.equalsIgnoreCase("Select an area")) {
+        Toast.makeText(
+                getApplicationContext(),
+                "Please select an area",
+                Toast.LENGTH_LONG)
+                .show();
+        return;
+      }
+      if(selectedCandidate.equalsIgnoreCase("")) {
+        Toast.makeText(
+                getApplicationContext(),
+                "Please select a candidate",
+                Toast.LENGTH_LONG)
+                .show();
+        return;
+      }
+      AlertDialog.Builder builder = new AlertDialog.Builder(CameraXLivePreviewActivity.this);
+      builder.setTitle("Alert");
+      builder.setMessage("Confirm your final choice:\n" +
+              "Area: " + selectedArea + "\n" +
+              "Candidate: " + selectedCandidate);
+
+      builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+          dialogInterface.cancel();
+        }
+      });
+
+      builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+
+        }
+      });
+
+      AlertDialog dialog = builder.create();
+      dialog.show();
+    });
+
     previewView = findViewById(R.id.preview_view);
     if (previewView == null) {
       Log.d(TAG, "previewView is null");

@@ -100,7 +100,7 @@ public class FaceGraphic extends Graphic {
     // Draws a circle at the position of the detected face, with the face's track id below.
     float x = translateX(face.getBoundingBox().centerX());
     float y = translateY(face.getBoundingBox().centerY());
-    canvas.drawCircle(x, y, FACE_POSITION_RADIUS, facePositionPaint);
+    //canvas.drawCircle(x, y, FACE_POSITION_RADIUS, facePositionPaint);
 
     // Calculate positions.
     float left = x - scale(face.getBoundingBox().width() / 2.0f);
@@ -159,18 +159,18 @@ public class FaceGraphic extends Graphic {
             idPaints[colorID].measureText(
                 String.format(Locale.US, "EulerZ: %.2f", face.getHeadEulerAngleZ())));
     // Draw labels
-    canvas.drawRect(
-        left - BOX_STROKE_WIDTH,
-        top + yLabelOffset,
-        left + textWidth + (2 * BOX_STROKE_WIDTH),
-        top,
-        labelPaints[colorID]);
+//    canvas.drawRect(
+//        left - BOX_STROKE_WIDTH,
+//        top + yLabelOffset,
+//        left + textWidth + (2 * BOX_STROKE_WIDTH),
+//        top,
+//        labelPaints[colorID]);
     yLabelOffset += ID_TEXT_SIZE;
     canvas.drawRect(left, top, right, bottom, boxPaints[colorID]);
-    if (face.getTrackingId() != null) {
-      canvas.drawText("ID: " + face.getTrackingId(), left, top + yLabelOffset, idPaints[colorID]);
-      yLabelOffset += lineHeight;
-    }
+//    if (face.getTrackingId() != null) {
+//      canvas.drawText("ID: " + face.getTrackingId(), left, top + yLabelOffset, idPaints[colorID]);
+//      yLabelOffset += lineHeight;
+//    }
 
     // Draws all face contours.
     for (FaceContour contour : face.getAllContours()) {
@@ -240,14 +240,14 @@ public class FaceGraphic extends Graphic {
           idPaints[colorID]);
     }
 
-    canvas.drawText(
-        "EulerX: " + face.getHeadEulerAngleX(), left, top + yLabelOffset, idPaints[colorID]);
-    yLabelOffset += lineHeight;
-    canvas.drawText(
-        "EulerY: " + face.getHeadEulerAngleY(), left, top + yLabelOffset, idPaints[colorID]);
-    yLabelOffset += lineHeight;
-    canvas.drawText(
-        "EulerZ: " + face.getHeadEulerAngleZ(), left, top + yLabelOffset, idPaints[colorID]);
+//    canvas.drawText(
+//        "EulerX: " + face.getHeadEulerAngleX(), left, top + yLabelOffset, idPaints[colorID]);
+//    yLabelOffset += lineHeight;
+//    canvas.drawText(
+//        "EulerY: " + face.getHeadEulerAngleY(), left, top + yLabelOffset, idPaints[colorID]);
+//    yLabelOffset += lineHeight;
+//    canvas.drawText(
+//        "EulerZ: " + face.getHeadEulerAngleZ(), left, top + yLabelOffset, idPaints[colorID]);
 
     // Draw facial landmarks
     drawFaceLandmark(canvas, FaceLandmark.LEFT_EYE);

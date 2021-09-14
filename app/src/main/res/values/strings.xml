@@ -54,20 +54,6 @@
     <string name="pref_title_info_hide" translatable="false">Hide detection info</string>
     <string name="pref_key_info_hide" translatable="false">ih</string>
 
-    <!-- Strings for text recognition preference. -->
-    <string name="pref_title_group_recognized_text_in_blocks" translatable="false">Group recognized text in paragraphs</string>
-    <string name="pref_key_group_recognized_text_in_blocks" translatable="false">grtib</string>
-
-    <!-- Strings for object detector enable multiple objects preference. -->
-    <string name="pref_title_object_detector_enable_multiple_objects" translatable="false">Enable multiple objects</string>
-    <string name="pref_key_live_preview_object_detector_enable_multiple_objects" translatable="false">lpodemo</string>
-    <string name="pref_key_still_image_object_detector_enable_multiple_objects" translatable="false">siodemo</string>
-
-    <!-- Strings for object detector enable classification preference. -->
-    <string name="pref_title_object_detector_enable_classification" translatable="false">Enable classification</string>
-    <string name="pref_key_live_preview_object_detector_enable_classification" translatable="false">lpodec</string>
-    <string name="pref_key_still_image_object_detector_enable_classification" translatable="false">siodec</string>
-
     <!-- Strings for face detector landmark mode preference. -->
     <string name="pref_title_face_detector_landmark_mode" translatable="false">Landmark mode</string>
     <string name="pref_key_live_preview_face_detection_landmark_mode" translatable="false">lpfdlm</string>
@@ -114,33 +100,5 @@
     <string name="pref_dialog_message_face_detector_min_face_size" translatable="false">Proportion of the head width to the image width, and the valid value range is [0.0, 1.0]</string>
     <string name="pref_toast_invalid_min_face_size" translatable="false">Minimum face size must be a float value and in the range [0.0, 1.0]</string>
 
-    <!-- Strings for pose detector performance mode preference. -->
-    <string name="pref_title_pose_detector_performance_mode" translatable="false">Performance mode</string>
-    <string name="pref_key_live_preview_pose_detection_performance_mode" translatable="false">lppdpm</string>
-    <string name="pref_key_still_image_pose_detection_performance_mode" translatable="false">sipdpm</string>
-    <string name="pref_entries_pose_detector_performance_mode_fast" translatable="false">Fast</string>
-    <string name="pref_entries_pose_detector_performance_mode_accurate" translatable="false">Accurate</string>
-    <string name="pref_entry_values_pose_detector_performance_mode_fast" translatable="false">1</string>
-    <string name="pref_entry_values_pose_detector_performance_mode_accurate" translatable="false">2</string>
-
-    <!-- Strings for pose detector showInFrameLikelihood preference. -->
-    <string name="pref_title_pose_detector_show_in_frame_likelihood" translatable="false">Show in-frame likelihood</string>
-    <string name="pref_key_live_preview_pose_detector_show_in_frame_likelihood" translatable="false">lppdsifl</string>
-    <string name="pref_key_still_image_pose_detector_show_in_frame_likelihood" translatable="false">sipdsifl</string>
-
-    <!-- Strings for pose detector z value visualization preference. -->
-    <string name="pref_title_pose_detector_visualize_z" translatable="false">Visualize z value</string>
-    <string name="pref_key_pose_detector_visualize_z" translatable="false">pdvz</string>
-    <string name="pref_title_pose_detector_rescale_z" translatable="false">Rescale z value for visualization</string>
-    <string name="pref_key_pose_detector_rescale_z" translatable="false">pdrz</string>
-
-    <!-- Strings for pose classification preference. -->
-    <string name="pref_title_pose_detector_run_classification" translatable="false">Run Classification</string>
-    <string name="pref_key_pose_detector_run_classification" translatable="false">pdrc</string>
-    <string name="pref_summary_pose_detector_run_classification" translatable="false">Classify squat and pushup poses. Count reps in streaming mode. To get the best classification results based on the current sample data, face the camera side way and make sure your full body is in the frame.</string>
-
-    <!-- Strings for segmentation preference. -->
-    <string name="pref_title_segmentation_raw_size_mask" translatable="false">Enable raw size mask</string>
-    <string name="pref_key_segmentation_raw_size_mask" translatable="false">srsm</string>
 
 </resources>
