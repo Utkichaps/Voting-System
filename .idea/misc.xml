@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Voting_app/app/src/main/res/layout/activity_vision_camerax_live_preview.xml" value="0.25416666666666665" />
+        <entry key="..\:/face-detector-test/app/src/main/res/drawable/ic_vote.xml" value="0.2046875" />
+        <entry key="..\:/face-detector-test/app/src/main/res/drawable/logo_mlkit.xml" value="0.21927083333333333" />
+        <entry key="..\:/face-detector-test/app/src/main/res/layout-land/activity_vision_camerax_live_preview.xml" value="0.19739583333333333" />
+        <entry key="..\:/face-detector-test/app/src/main/res/layout-land/activity_vision_live_preview.xml" value="0.18177083333333333" />
+        <entry key="..\:/face-detector-test/app/src/main/res/layout/activity_chooser.xml" value="0.20416666666666666" />
+        <entry key="..\:/face-detector-test/app/src/main/res/layout/activity_error_page.xml" value="0.264" />
+        <entry key="..\:/face-detector-test/app/src/main/res/layout/activity_settings.xml" value="0.1765625" />
+        <entry key="..\:/face-detector-test/app/src/main/res/layout/activity_vision_camerax_live_preview.xml" value="0.20416666666666666" />
+        <entry key="..\:/face-detector-test/app/src/main/res/layout/activity_vision_cameraxsource_demo.xml" value="0.1765625" />
+        <entry key="..\:/face-detector-test/app/src/main/res/layout/activity_vision_entry_choice.xml" value="0.20416666666666666" />
+        <entry key="..\:/face-detector-test/app/src/main/res/layout/activity_vision_live_preview.xml" value="0.1765625" />
+        <entry key="..\:/vision-quickstart2/app/src/main/res/layout-land/activity_vision_camerax_live_preview.xml" value="0.21197916666666666" />
+        <entry key="..\:/vision-quickstart2/app/src/main/res/layout/activity_settings.xml" value="0.20625" />
+        <entry key="..\:/vision-quickstart2/app/src/main/res/layout/activity_vision_camerax_live_preview.xml" value="0.20625" />
+        <entry key="..\:/vision-quickstart2/app/src/main/res/layout/settings_style.xml" value="0.20625" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="SuppressKotlinCodeStyleNotification">
+    <option name="disableForAll" value="true" />
   </component>
 </project>

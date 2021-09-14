@@ -14,26 +14,26 @@
  * limitations under the License.
  */
 
-package com.google.mlkit.vision.demo
+package com.google.mlkit.vision.demo;
 
-import android.content.Intent
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import android.widget.TextView
-import com.google.mlkit.vision.demo.java.CameraXLivePreviewActivity
-import com.google.mlkit.vision.demo.java.ChooserActivity
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
 
-class EntryChoiceActivity : AppCompatActivity() {
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.mlkit.vision.demo.java.CameraXLivePreviewActivity;
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_vision_entry_choice)
+public class EntryChoiceActivity extends AppCompatActivity {
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_vision_entry_choice);
 
-    findViewById<TextView>(R.id.java_entry_point).setOnClickListener {
-//      Class<?> faceDetection = new CameraXLivePreviewActivity.class;
-      val intent = Intent(this@EntryChoiceActivity, ChooserActivity::class.java)
-      startActivity(intent)
+        findViewById(R.id.java_entry_point).setOnClickListener(v -> {
+            Class faceDetection = CameraXLivePreviewActivity.class;
+            startActivity(new Intent(this, faceDetection));
+        });
     }
-
-  }
 }

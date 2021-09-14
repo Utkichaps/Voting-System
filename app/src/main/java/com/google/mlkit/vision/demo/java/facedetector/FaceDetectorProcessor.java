@@ -17,11 +17,16 @@
 package com.google.mlkit.vision.demo.java.facedetector;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.PointF;
 import androidx.annotation.NonNull;
+
 import android.util.Log;
+import android.widget.Toast;
+
 import com.google.android.gms.tasks.Task;
 import com.google.mlkit.vision.common.InputImage;
+import com.google.mlkit.vision.demo.ErrorPage;
 import com.google.mlkit.vision.demo.GraphicOverlay;
 import com.google.mlkit.vision.demo.java.VisionProcessorBase;
 import com.google.mlkit.vision.demo.preference.PreferenceUtils;
@@ -40,8 +45,11 @@ public class FaceDetectorProcessor extends VisionProcessorBase<List<Face>> {
 
   private final FaceDetector detector;
 
+  public static Context publicContext;
+
   public FaceDetectorProcessor(Context context) {
     super(context);
+    publicContext = context;
     FaceDetectorOptions faceDetectorOptions = PreferenceUtils.getFaceDetectorOptions(context);
     Log.v(MANUAL_TESTING_LOG, "Face detector options: " + faceDetectorOptions);
     detector = FaceDetection.getClient(faceDetectorOptions);
@@ -62,6 +70,12 @@ public class FaceDetectorProcessor extends VisionProcessorBase<List<Face>> {
   protected void onSuccess(@NonNull List<Face> faces, @NonNull GraphicOverlay graphicOverlay) {
     for (Face face : faces) {
       graphicOverlay.add(new FaceGraphic(graphicOverlay, face));
+      Log.i("FACES", String.valueOf(face.getTrackingId()));
+      if(face.getTrackingId() != 0) {
+        Log.i("FACES","More faces");
+        Intent intent = new Intent(publicContext, ErrorPage.class);
+        publicContext.startActivity(intent);
+      }
       logExtrasForTesting(face);
     }
   }
