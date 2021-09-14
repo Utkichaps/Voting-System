@@ -15,7 +15,7 @@ public class ErrorPage extends AppCompatActivity {
 
         Button returnButton = findViewById(R.id.returnButton);
         returnButton.setOnClickListener(v -> {
-            Intent intent = new Intent(this, EntryChoiceActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         });
     }
