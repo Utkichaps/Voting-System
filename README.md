@@ -14,5 +14,5 @@ This application is from the paper titled "Coercion Resistant Remote Electronic 
 
 ### Screenshots
 
-![Face detaction demo](https://media4.giphy.com/media/iWkQo62yHVopWweu8j/giphy.gif?cid=790b7611bfe2a53cb2bd2a88b2e54482ddef5cb805bfee08&rid=giphy.gif)
+![Face detaction demo](https://media2.giphy.com/media/0y4sdtedIfc6QWKkGO/giphy.gif?cid=790b7611897ea1e606cd0a097236617f7fc629c28b706c7a&rid=giphy.gif)
 
