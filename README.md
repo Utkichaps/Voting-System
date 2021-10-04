@@ -2,11 +2,11 @@
 
 ## About
 
-This application is from the paper titled "Coercion Resistant Remote Electronic Voting".
+This application is designed for the paper titled "Coercion Resistant Remote Electronic Voting".
 
 ## Features
 
-*  Biometric authentication (TBD)
+*  Biometric authentication
 *  OTP Generation
 *  Face Detection
    *  Real time face tracking
